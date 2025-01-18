@@ -1,0 +1,104 @@
+ticker,name,market_cap,industry,sector,avg_volume,revenue_growth,gross_margins,ps_ratio,is_known_ticker,price,growth_category,market_cap_category
+WDAY,"Workday, Inc.",66.404241408,Software - Application,Technology,3331508,16.7,75.773,8.445153,True,249.64,Low,$70B
+WDAY,"Workday, Inc.",66.404241408,Software - Application,Technology,3331508,16.7,75.773,8.445153,True,249.64,Low,$70B
+TEAM,Atlassian Corporation,65.722871808,Software - Application,Technology,2112503,21.5,81.545997,14.385752,True,252.36,Medium,$70B
+TEAM,Atlassian Corporation,65.722871808,Software - Application,Technology,2112503,21.5,81.545997,14.385752,True,252.36,Medium,$70B
+TTD,"The Trade Desk, Inc.",61.410480128,Software - Application,Technology,3665309,27.3,81.06,26.589043,True,124.42,Medium,$70B
+SNOW,Snowflake Inc.,56.372826112,Software - Application,Technology,6564129,28.9,67.83500000000001,17.581324,True,170.79,Medium,$70B
+SNOW,Snowflake Inc.,56.372826112,Software - Application,Technology,6564129,28.9,67.83500000000001,17.581324,True,170.79,Medium,$70B
+NXPI,NXP Semiconductors N.V.,54.735036416,Semiconductors,Technology,2388531,-5.4,57.238,4.234819,True,215.36,Negative,$70B
+DDOG,"Datadog, Inc.",47.017660416,Software - Application,Technology,4570700,26.0,81.242996,18.538647,True,138.4,Medium,$50B
+DDOG,"Datadog, Inc.",47.017660416,Software - Application,Technology,4570700,26.0,81.242996,18.538647,True,138.4,Medium,$50B
+HOOD,"Robinhood Markets, Inc.",42.563444736,Capital Markets,Financial Services,22880268,36.4,86.462,17.67585,True,48.15,Medium,$50B
+KVUE,Kenvue Inc.,40.454189056,Household & Personal Products,Consumer Defensive,13318395,-0.4,57.902,2.6168697,True,21.1,Negative,$50B
+NET,"Cloudflare, Inc.",40.20860928,Software - Infrastructure,Technology,2793263,28.199999999999996,77.52799999999999,25.575506,True,117.16,Medium,$50B
+NET,"Cloudflare, Inc.",40.20860928,Software - Infrastructure,Technology,2793263,28.199999999999996,77.52799999999999,25.575506,True,117.16,Medium,$50B
+MPWR,"Monolithic Power Systems, Inc.",30.527500288,Semiconductors,Technology,981747,30.599999999999998,55.289,14.968518,True,625.82,Medium,$50B
+ZS,"Zscaler, Inc.",28.78209024,Software - Infrastructure,Technology,1754206,30.3,78.080004,13.277275,True,187.58,Medium,$50B
+ZS,"Zscaler, Inc.",28.78209024,Software - Infrastructure,Technology,1754206,30.3,78.080004,13.277275,True,187.58,Medium,$50B
+TER,"Teradyne, Inc.",22.53996032,Semiconductor Equipment & Materials,Technology,2472668,4.8,57.89,8.23349,True,138.4,Low,$50B
+TOST,"Toast, Inc.",21.515841536,Software - Infrastructure,Technology,7194572,26.5,23.358,4.619116,True,37.88,Medium,$50B
+MDB,"MongoDB, Inc.",20.282615808,Software - Infrastructure,Technology,1942522,12.8,74.02499999999999,11.146683,True,253.11,Low,$50B
+DOCU,"DocuSign, Inc.",18.101260288,Software - Application,Technology,3150793,7.000000000000001,80.254996,6.332491,True,89.6,Low,$20B
+SMCI,"Super Micro Computer, Inc.",18.047113216,Computer Hardware,Technology,76013254,143.0,14.132,1.2077421,True,30.82,High,$20B
+AFRM,"Affirm Holdings, Inc.",18.00763392,Software - Infrastructure,Technology,8607303,40.699999999999996,42.266998,7.131931,True,57.99,High,$20B
+SOFI,"SoFi Technologies, Inc.",17.904973824,Credit Services,Financial Services,50894211,34.1,82.636,7.1073737,True,16.5,Medium,$20B
+NTNX,"Nutanix, Inc.",17.45283072,Software - Infrastructure,Technology,2545014,10.9,84.935,8.122069,True,65.14,Low,$20B
+CYBR,CyberArk Software Ltd.,17.361487872,Software - Infrastructure,Technology,485086,25.6,81.066,19.089844,True,352.22,Medium,$20B
+TWLO,Twilio Inc.,17.169805312,Software - Infrastructure,Technology,2764773,9.700000000000001,50.94,3.9569504,True,111.94,Low,$20B
+TWLO,Twilio Inc.,17.169805312,Software - Infrastructure,Technology,2764773,9.700000000000001,50.94,3.9569504,True,111.94,Low,$20B
+MANH,"Manhattan Associates, Inc.",16.699819008,Software - Application,Technology,401300,16.6,54.653,16.29559,True,273.43,Low,$20B
+ENTG,"Entegris, Inc.",16.063166464,Semiconductor Equipment & Materials,Technology,2084883,-9.1,45.078,5.0140014,True,106.38,Negative,$20B
+AZPN,"Aspen Technology, Inc.",15.908564992,Software - Application,Technology,463381,-13.4,65.26999500000001,14.540973,True,251.52,Negative,$20B
+DT,"Dynatrace, Inc.",15.312229376,Software - Application,Technology,3038491,18.9,82.405996,9.794855,True,51.3,Low,$20B
+SWKS,"Skyworks Solutions, Inc.",14.9750016,Semiconductors,Technology,2401701,-15.9,40.466,3.4253628,True,93.64,Negative,$20B
+OKTA,"Okta, Inc.",14.957579264,Software - Infrastructure,Technology,3103134,16.2,75.81599999999999,6.100155,True,87.29,Low,$20B
+PAYC,"Paycom Software, Inc.",12.06173696,Software - Application,Technology,607673,11.200000000000001,85.616994,6.613077,True,209.18,Low,$20B
+PAYC,"Paycom Software, Inc.",12.06173696,Software - Application,Technology,607673,11.200000000000001,85.616994,6.613077,True,209.18,Low,$20B
+PCTY,Paylocity Holding Corporation,10.982119424,Software - Application,Technology,414570,28.199999999999996,68.669,7.5849385,True,197.0,Medium,$20B
+PCTY,Paylocity Holding Corporation,10.982119424,Software - Application,Technology,414570,28.199999999999996,68.669,7.5849385,True,197.0,Medium,$20B
+MTSI,"MACOM Technology Solutions Holdings, Inc.",10.809561088,Semiconductors,Technology,602295,33.5,53.973000000000006,14.816183,True,145.41,Medium,$20B
+ONTO,Onto Innovation Inc.,10.69766144,Semiconductor Equipment & Materials,Technology,761409,21.7,52.127,11.353459,True,216.59,Medium,$20B
+NICE,NICE Ltd.,10.487467008,Software - Application,Technology,470196,14.299999999999999,67.065,4.115565,True,162.4,Low,$20B
+ESTC,Elastic N.V.,10.403616768,Software - Application,Technology,1395449,18.3,74.050003,7.875633,True,100.39,Low,$20B
+ESTC,Elastic N.V.,10.403616768,Software - Application,Technology,1395449,18.3,74.050003,7.875633,True,100.39,Low,$20B
+GTLB,GitLab Inc.,10.228146176,Software - Infrastructure,Technology,2514513,30.8,89.294,15.375631,True,63.02,Medium,$20B
+GTLB,GitLab Inc.,10.228146176,Software - Infrastructure,Technology,2514513,30.8,89.294,15.375631,True,63.02,Medium,$20B
+ALTR,Altair Engineering Inc.,9.417465856,Software - Application,Technology,1114701,13.0,81.293,14.608423,True,110.41,Low,$10B
+DBX,"Dropbox, Inc.",9.221783552,Software - Infrastructure,Technology,2871213,0.8999999999999999,82.311994,3.6311955,True,30.59,Low,$10B
+BILL,"BILL Holdings, Inc.",9.200883712,Software - Application,Technology,2430332,17.5,85.238,6.847745,True,88.9,Low,$10B
+BILL,"BILL Holdings, Inc.",9.200883712,Software - Application,Technology,2430332,17.5,85.238,6.847745,True,88.9,Low,$10B
+PEGA,Pegasystems Inc.,8.857509888,Software - Application,Technology,568427,-2.9000000000000004,74.404997,5.982447,True,103.29,Negative,$10B
+U,Unity Software Inc.,8.769826816,Software - Application,Technology,10961983,-18.0,69.554,4.4620533,True,21.77,Negative,$10B
+CFLT,"Confluent, Inc.",8.757467136,Software - Infrastructure,Technology,3888491,25.0,73.165,9.564668,True,26.7,Medium,$10B
+CFLT,"Confluent, Inc.",8.757467136,Software - Infrastructure,Technology,3888491,25.0,73.165,9.564668,True,26.7,Medium,$10B
+IONQ,"IonQ, Inc.",8.415484928,Computer Hardware,Technology,32890160,102.1,50.324000000000005,224.5986,True,38.89,High,$10B
+LSCC,Lattice Semiconductor Corporation,8.04646912,Semiconductors,Technology,2134059,-33.900000000000006,68.896,14.302851,True,58.32,Negative,$10B
+SMAR,Smartsheet Inc.,7.904513024,Software - Application,Technology,3098219,17.299999999999997,81.607,7.583991,True,56.46,Low,$10B
+S,"SentinelOne, Inc.",7.17556736,Software - Infrastructure,Technology,4512932,33.1,73.347,9.916045,True,22.33,Medium,$10B
+S,"SentinelOne, Inc.",7.17556736,Software - Infrastructure,Technology,4512932,33.1,73.347,9.916045,True,22.33,Medium,$10B
+SPSC,"SPS Commerce, Inc.",7.175506944,Software - Application,Technology,211252,20.7,66.629,11.728077,True,191.0,Medium,$10B
+PATH,UiPath Inc.,7.155779072,Software - Infrastructure,Technology,8785772,10.100000000000001,84.033996,5.175824,True,13.02,Low,$10B
+PATH,UiPath Inc.,7.155779072,Software - Infrastructure,Technology,8785772,10.100000000000001,84.033996,5.175824,True,13.02,Low,$10B
+UPST,"Upstart Holdings, Inc.",5.743714816,Credit Services,Financial Services,6779188,20.1,74.624,9.494622,True,62.96,Medium,$10B
+FRSH,Freshworks Inc.,5.28177408,Software - Application,Technology,4202845,21.5,83.836,7.699828,True,17.44,Medium,$10B
+VRNS,"Varonis Systems, Inc.",4.970093568,Software - Infrastructure,Technology,1606609,21.099999999999998,84.056,9.093825,True,44.19,Medium,$5B
+VRNS,"Varonis Systems, Inc.",4.970093568,Software - Infrastructure,Technology,1606609,21.099999999999998,84.056,9.093825,True,44.19,Medium,$5B
+TENB,"Tenable Holdings, Inc.",4.905112064,Software - Infrastructure,Technology,972693,12.7,77.54900500000001,5.5892596,True,40.83,Low,$5B
+RELY,"Remitly Global, Inc.",4.606898688,Software - Infrastructure,Technology,1813603,39.300000000000004,58.92699999999999,3.9146812,True,23.26,Medium,$5B
+BOX,"Box, Inc.",4.530987008,Software - Infrastructure,Technology,1732375,3.3000000000000003,76.8,4.2781,True,31.53,Low,$5B
+ACHR,Archer Aviation Inc.,4.4244736,Aerospace & Defense,Industrials,37615404,,,,True,8.82,,$5B
+SLAB,Silicon Laboratories Inc.,4.372367872,Semiconductors,Technology,303247,-18.3,52.654,8.658463,True,134.75,Negative,$5B
+AI,"C3.ai, Inc.",4.131370496,Software - Application,Technology,7251185,20.5,58.438,12.694996,True,32.01,Medium,$5B
+AI,"C3.ai, Inc.",4.131370496,Software - Application,Technology,7251185,20.5,58.438,12.694996,True,32.01,Medium,$5B
+PAYO,Payoneer Global Inc.,3.858552576,Software - Infrastructure,Technology,3315278,47.0,84.54699500000001,4.1035466,True,10.82,High,$5B
+NCNO,"nCino, Inc.",3.848992768,Software - Application,Technology,1253014,12.9,60.053999999999995,7.6048265,True,33.24,Low,$5B
+ALIT,"Alight, Inc.",3.759663616,Software - Application,Technology,5622078,-0.4,36.361,1.1196139,True,6.79,Negative,$5B
+BL,"BlackLine, Inc.",3.72726016,Software - Application,Technology,595036,10.100000000000001,75.311995,5.827431,True,59.65,Low,$5B
+BL,"BlackLine, Inc.",3.72726016,Software - Application,Technology,595036,10.100000000000001,75.311995,5.827431,True,59.65,Low,$5B
+ZI,ZoomInfo Technologies Inc.,3.689328128,Software - Application,Technology,8577550,-3.3000000000000003,88.335,3.0200787,True,10.1,Negative,$5B
+FROG,JFrog Ltd.,3.65368832,Software - Application,Technology,898439,23.0,77.983004,8.918613,True,32.75,Medium,$5B
+FROG,JFrog Ltd.,3.65368832,Software - Application,Technology,898439,23.0,77.983004,8.918613,True,32.75,Medium,$5B
+POWI,"Power Integrations, Inc.",3.538115584,Semiconductors,Technology,386175,-7.7,52.99499600000001,8.774435,True,62.22,Negative,$5B
+DLO,DLocal Limited,3.367928576,Software - Infrastructure,Technology,1273924,13.3,38.476002,4.616839,True,11.81,Low,$5B
+DOCN,"DigitalOcean Holdings, Inc.",3.334159616,Software - Infrastructure,Technology,882922,12.1,60.18399599999999,4.4069767,True,36.13,Low,$5B
+RNG,"RingCentral, Inc.",3.042670336,Software - Application,Technology,1260609,9.1,70.432997,1.2908237,True,33.81,Low,$5B
+TDC,Teradata Corporation,2.927462912,Software - Infrastructure,Technology,830318,0.5,60.956999999999994,1.6281774,True,30.59,Low,$5B
+DIOD,Diodes Incorporated,2.822136832,Semiconductors,Technology,373749,-13.5,33.793,2.1800628,True,60.91,Negative,$5B
+RGTI,"Rigetti Computing, Inc.",2.752881664,Computer Hardware,Technology,117215037,-23.400000000000002,60.629003999999995,231.49022,True,9.83,Negative,$5B
+PRGS,Progress Software Corporation,2.700440576,Software - Infrastructure,Technology,451514,2.1,86.28399399999999,3.7746334,True,62.94,Low,$5B
+FLYW,Flywire Corporation,2.492072704,Software - Infrastructure,Technology,1345149,27.200000000000003,63.614000000000004,5.244934,True,20.03,Medium,$5B
+RPD,"Rapid7, Inc.",2.454944256,Software - Infrastructure,Technology,754886,8.0,70.647,2.9470623,True,38.84,Low,$5B
+APPN,Appian Corporation,2.42350336,Software - Infrastructure,Technology,445126,12.4,75.28399999999999,4.0686293,True,32.8,Low,$5B
+APPN,Appian Corporation,2.42350336,Software - Infrastructure,Technology,445126,12.4,75.28399999999999,4.0686293,True,32.8,Low,$5B
+ACLS,"Axcelis Technologies, Inc.",2.32776192,Semiconductor Equipment & Materials,Technology,611465,-12.2,44.279,2.1638782,True,71.61,Negative,$5B
+MGNI,"Magnite, Inc.",2.17225344,Advertising Agencies,Communication Services,1824204,7.9,60.511,3.2856476,True,15.44,Low,$5B
+AVDX,"AvidXchange Holdings, Inc.",2.135435904,Software - Infrastructure,Technology,1827822,14.299999999999999,71.458,4.9944005,True,10.38,Low,$5B
+MQ,"Marqeta, Inc.",1.883977472,Software - Infrastructure,Technology,7534404,17.5,68.747,3.84464,True,3.75,Low,$5B
+DAVA,Endava plc,1.87578624,Software - Infrastructure,Technology,440081,2.4,25.489,2.5322595,True,31.55,Low,$5B
+NABL,"N-able, Inc.",1.73089216,Information Technology Services,Technology,572362,8.3,84.032995,3.7788033,True,9.24,Low,$5B
+PD,"PagerDuty, Inc.",1.649838336,Software - Application,Technology,1033442,7.7,82.25200000000001,3.691376,True,18.3,Low,$5B
+PD,"PagerDuty, Inc.",1.649838336,Software - Application,Technology,1033442,7.7,82.25200000000001,3.691376,True,18.3,Low,$5B
+CSGS,"CSG Systems International, Inc.",1.537549184,Software - Infrastructure,Technology,213257,2.9000000000000004,47.669998,1.3053087,True,52.85,Low,$5B
+FSLY,"Fastly, Inc.",1.303387008,Software - Application,Technology,3277940,7.3,54.846,2.4097795,True,9.29,Low,$5B
+PSFE,Paysafe Limited,1.095129472,Software - Infrastructure,Technology,364250,7.7,58.461,0.6444569,True,18.02,Low,$5B
