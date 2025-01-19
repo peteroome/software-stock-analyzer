@@ -5,14 +5,17 @@ from datetime import datetime
 def load_universe():
     """Load the most recent universe file"""
     try:
-        # Get most recent universe file (assuming format: software_universe_YYYYMMDD.csv)
         import glob
         universe_files = glob.glob('software_universe_*.csv')
         if not universe_files:
             raise FileNotFoundError("No universe file found")
             
         most_recent = max(universe_files)
-        return pd.read_csv(most_recent)
+        df = pd.read_csv(most_recent)
+        
+        df = df.drop_duplicates(subset=['ticker'])
+        
+        return df
     except Exception as e:
         print(f"Error loading universe: {e}")
         return pd.DataFrame()

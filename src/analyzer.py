@@ -7,6 +7,9 @@ from .constants import load_universe
 class CompleteStockAnalyzer:
     def __init__(self):
         self.universe = load_universe()
+        # Add these lines:
+        self.min_market_cap = 1_000_000_000  # $1B
+        self.max_market_cap = 70_000_000_000  # $70B
 
     def analyze_universe(self):
         """Analyze all stocks in the universe"""
