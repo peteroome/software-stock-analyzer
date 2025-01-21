@@ -4,55 +4,246 @@ import pandas as pd
 from src.analyzer import CompleteStockAnalyzer
 from src.constants import load_universe
 
+st.set_page_config(layout="wide") 
+
 def display_results(results):
     if not results:
         st.warning("No results to display")
         return
 
-    # Convert to DataFrame for easier display
     df = pd.DataFrame(results)
     
-    # Summary metrics
-    st.subheader("Summary")
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        st.metric("Average Score", f"{df['composite_score'].mean():.1f}")
-    with col2:
-        st.metric("Stocks Analyzed", len(results))
-    with col3:
-        st.metric("Buy Rated", len(df[df['rating'].isin(['Buy', 'Strong Buy'])])) # Include Strong Buy
+    # Create overview dataframe
+    overview_df = pd.DataFrame({
+        'Ticker': df['ticker'],
+        'Name': df['name'],
+        'Score': df['composite_score'].round(1),
+        'Rating': df['rating'],
+        'Market Cap ($B)': df['market_cap'].round(1),
+        'Growth (%)': df.apply(lambda x: x['key_metrics'].get('revenue_growth', 'N/A'), axis=1).round(1),
+        'Momentum': df.apply(lambda x: get_momentum_indicator(x['key_metrics']), axis=1),
+        'Price Trend': df.apply(lambda x: get_price_trend(x['key_metrics']), axis=1),
+    })
+
+    # Detail View first (at the top)
+    detail_section = st.container()
     
-    # Overall distribution
-    st.subheader("Rating Distribution")
-    rating_counts = df['rating'].value_counts()
-    st.bar_chart(rating_counts)
+    # Table View below
+    table_section = st.container()
+
+    # Table View with selection
+    with table_section:
+        st.subheader("All Results")
+
+        # Display the table
+        st.dataframe(
+            overview_df,
+            use_container_width=True,
+            height=int(len(results) * 35.5),
+            hide_index=True,
+            column_config={
+                "Ticker": st.column_config.TextColumn(
+                    "Ticker",
+                    width="small",
+                ),
+                "Name": st.column_config.TextColumn(
+                    "Name",
+                    width="medium",
+                ),
+                "Score": st.column_config.NumberColumn(
+                    "Score",
+                    width="small",
+                    format="%.1f"
+                ),
+                "Rating": st.column_config.TextColumn(
+                    "Rating",
+                    width="small",
+                ),
+                "Market Cap ($B)": st.column_config.NumberColumn(
+                    "Market Cap ($B)",
+                    width="small",
+                    format="%.1f"
+                ),
+                "Growth (%)": st.column_config.NumberColumn(
+                    "Growth (%)",
+                    width="small",
+                    format="%.1f"
+                ),
+                "Momentum": st.column_config.TextColumn(
+                    "Momentum",
+                    width="small",
+                ),
+                "Price Trend": st.column_config.TextColumn(
+                    "Price Trend",
+                    width="medium",
+                ),
+            }
+        )
     
-    # Detailed results
-    st.subheader("Detailed Analysis")
-    for result in sorted(results, key=lambda x: x['composite_score'], reverse=True):
-        with st.expander(f"{result['name']} ({result['ticker']}) - {result['rating']} - Score: {result['composite_score']:.1f}"):
+    # Detail View
+    with detail_section:
+        # Add selection dropdown
+        selected_row = st.selectbox(
+            "Select a stock to view details",
+            overview_df['Ticker'].tolist(),
+            format_func=lambda x: f"{x} - {overview_df[overview_df['Ticker'] == x]['Name'].iloc[0]}"
+        )
+        st.session_state.selected_ticker = selected_row
+
+        st.header("Focused View")
+
+        if 'selected_ticker' in st.session_state:
+            result = next(r for r in results if r['ticker'] == st.session_state.selected_ticker)
+            
+            # Create three columns for key metrics
+            col1, col2, col3, col4 = st.columns([3, 1, 1, 1])
+
+            with col1:
+                st.metric("Ticker", f"{result['name']} ({result['ticker']})")
+            with col2:
+                st.metric("Rating", result['rating'])
+            with col3:
+                st.metric("Score", f"{result['composite_score']:.1f}")
+            with col4:
+                st.metric("Market Cap", f"${result['market_cap']:.1f}B")
+            
+            # Create two columns for detailed analysis
             col1, col2 = st.columns(2)
             
             with col1:
-                st.write("Component Scores:")
-                for name, score in result['component_scores'].items():
-                    # Format name for better display
-                    formatted_name = name.replace('_', ' ').title()
-                    st.write(f"{formatted_name}: {score:.1f}")
+                st.subheader("Analysis Scores")
+                scores_df = pd.DataFrame({
+                    'Component': [
+                        'Composite Score',
+                        'Growth',
+                        'Value Alignment',
+                        'Margins',
+                        'Financial Health',
+                        'Insider Confidence',
+                        'Momentum',
+                        'Volume Trends'
+                    ],
+                    'Score': [
+                        result['composite_score'],
+                        result['component_scores']['growth'],
+                        result['component_scores']['value_alignment'],
+                        result['component_scores']['margins'],
+                        result['component_scores']['financial_health'],
+                        result['component_scores']['insider_confidence'],
+                        result['component_scores']['momentum'],
+                        result['component_scores']['volume_trends']
+                    ]
+                })
+                st.dataframe(
+                    scores_df,
+                    use_container_width=True,
+                    hide_index=True,
+                    column_config={
+                        "Score": st.column_config.NumberColumn(
+                            "Score",
+                            format="%.1f"
+                        )
+                    }
+                )
             
             with col2:
-                st.write("Key Metrics:")
-                for name, value in result['key_metrics'].items():
-                    # Format name for better display
-                    formatted_name = name.replace('_', ' ').title()
-                    if isinstance(value, float):
-                        st.write(f"{formatted_name}: {value:.1f}")
-                    else:
-                        st.write(f"{formatted_name}: {value}")
+                st.subheader("Fundamental Metrics")
+                metrics = result['key_metrics']
+                fundamentals_df = pd.DataFrame({
+                    'Metric': [
+                        'P/S Ratio',
+                        'Revenue Growth (%)',
+                        'Gross Margins (%)',
+                        'Current Ratio',
+                        'Cash/Debt Ratio',
+                        'Insider Ownership (%)',
+                        'Institutional Ownership (%)',
+                        'Price vs 50-day MA (%)',
+                        'Price vs 200-day MA (%)'
+                    ],
+                    'Value': [
+                        metrics['ps_ratio'],
+                        metrics['revenue_growth'],
+                        metrics['gross_margins'],
+                        metrics['current_ratio'],
+                        metrics['cash_to_debt'],
+                        metrics['insider_ownership'],
+                        metrics['institutional_ownership'],
+                        metrics['price_vs_ma50'],
+                        metrics['price_vs_ma200']
+                    ]
+                })
+                st.dataframe(
+                    fundamentals_df,
+                    use_container_width=True,
+                    hide_index=True,
+                    column_config={
+                        "Value": st.column_config.NumberColumn(
+                            "Value",
+                            format="%.1f"
+                        )
+                    }
+                )
 
-# Add debugging information
+def get_momentum_indicator(metrics):
+    """
+    Determine momentum based on price vs moving averages
+    Returns: 🔥 (Strong), ↗️ (Up), ➡️ (Neutral), ↘️ (Down), ❄️ (Weak)
+    """
+    price_vs_50 = metrics.get('price_vs_ma50', 0)
+    price_vs_200 = metrics.get('price_vs_ma200', 0)
+    
+    if price_vs_50 > 5 and price_vs_200 > 10:
+        return "🔥 Strong"
+    elif price_vs_50 > 0 and price_vs_200 > 0:
+        return "↗️ Up"
+    elif price_vs_50 < -5 and price_vs_200 < -10:
+        return "❄️ Weak"
+    elif price_vs_50 < 0 and price_vs_200 < 0:
+        return "↘️ Down"
+    else:
+        return "➡️ Neutral"
+
+def get_price_trend(metrics):
+    """
+    Compare short-term vs long-term trend
+    Returns a string indicating trend direction and strength
+    """
+    ma50 = metrics.get('price_vs_ma50', 0)
+    ma200 = metrics.get('price_vs_ma200', 0)
+    volume_trend = metrics.get('volume_trend', 1)
+    
+    trend_strength = ""
+    
+    # Basic trend
+    if ma50 > 2 and ma200 > 2:
+        if volume_trend > 1.1:  # Increasing volume
+            trend_strength = "📈 Strong Uptrend"
+        else:
+            trend_strength = "↗️ Uptrend"
+    elif ma50 < -2 and ma200 < -2:
+        if volume_trend < 0.9:  # Decreasing volume
+            trend_strength = "📉 Strong Downtrend"
+        else:
+            trend_strength = "↘️ Downtrend"
+    elif abs(ma50) <= 2 and abs(ma200) <= 2:
+        trend_strength = "↔️ Sideways"
+    elif ma50 > ma200:
+        trend_strength = "↗️ Emerging Uptrend"
+    else:
+        trend_strength = "↘️ Emerging Downtrend"
+    
+    return trend_strength
+
 def main():
     st.title("Software Stock Analyzer")
+
+    # Add refresh button in the top right
+    if st.button("🔄 Refresh Analysis"):
+        # Clear the cached results
+        if 'analysis_results' in st.session_state:
+            del st.session_state.analysis_results
+        st.experimental_rerun()
     
     # Load universe
     universe = load_universe()
@@ -60,32 +251,9 @@ def main():
     if universe.empty:
         st.error("No universe file found. Please run the universe builder first.")
         return
-    
-    # Debug info
-    st.sidebar.header("Analysis Controls")
-    st.sidebar.subheader("Universe Statistics")
-    st.sidebar.write(f"Total Stocks: {len(universe)}")
-    st.sidebar.write(f"Available Columns: {', '.join(universe.columns)}")
 
-    col1, col2 = st.sidebar.columns([3,1])
-    with col1:
-        st.write("Stock Selection")
-    with col2:
-        select_all = st.checkbox("Select All", value=True)
-    
-    # Stock selection
-    selected_stocks = st.sidebar.multiselect(
-        "Select Stocks to Analyze",
-        universe['ticker'].tolist(),
-        default=universe['ticker'].unique().tolist() if select_all else []
-    )
-    
-    # Run analysis button
-    if st.sidebar.button("Run Analysis"):
-        if not selected_stocks:
-            st.warning("Please select at least one stock to analyze")
-            return
-            
+    # Only run analysis if results are not in session state
+    if 'analysis_results' not in st.session_state:
         analyzer = CompleteStockAnalyzer()
         results = []
         
@@ -93,20 +261,23 @@ def main():
         progress_text = st.empty()
         progress_bar = st.progress(0)
         
-        for i, ticker in enumerate(selected_stocks):
-            progress_text.text(f"Analyzing {ticker} ({i+1}/{len(selected_stocks)})")
+        for i, ticker in enumerate(universe['ticker']):
+            progress_text.text(f"Analyzing {ticker} ({i+1}/{len(universe)})")
             result = analyzer.analyze_stock(ticker)
             if result and 'composite_score' in result:
                 results.append(result)
-            progress_bar.progress((i + 1) / len(selected_stocks))
+            progress_bar.progress((i + 1) / len(universe))
         
         progress_text.text("Analysis complete!")
         
-        # Display results
-        if results:
-            display_results(results)
-        else:
-            st.error("No valid results found. Please try different stocks.")
+        # Store results in session state
+        st.session_state.analysis_results = results
+
+    # Display results using stored analysis
+    if st.session_state.analysis_results:
+        display_results(st.session_state.analysis_results)
+    else:
+        st.error("No valid results found. Check universe data.")
 
 if __name__ == "__main__":
     main()
